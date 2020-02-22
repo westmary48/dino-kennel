@@ -39,13 +39,17 @@ const printToDom = (divId, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 }
 
-
+const closeSingleViewEvent = () => {
+  printToDom('single-view', '');
+  printDinos(dinos);
+}
 
 const viewSingleDino = () => {
  let domString = ''
- domString += '<button class="btn btn-danger">Close</button>'
+ domString += '<button id="close-single-view" class="btn btn-danger">Close</button>'
  printToDom('kennel', '')
  printToDom('single-view', domString)
+ document.getElementById('close-single-view').addEventListener('click', closeSingleViewEvent)
 }
 
 const singleDinoAddEvents = () => {
